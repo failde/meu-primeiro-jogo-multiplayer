@@ -20,7 +20,7 @@
             const context = screen.getContext('2d')
             const currentPlayerId = 'player1'
             
-            const game = {
+            const state = {
                 players: {
                     'player1': {x:1, y:1},
                     'player2': {x:9, y:9}
@@ -29,6 +29,18 @@
                     'fruit1': {x:3, y:1}
                 }
             }
+
+            function createGame() {
+                function movePlayer(comand) {
+                    console.log(`Moving ${comand.playerId} with ${comand.keyPressed}`)
+                }
+
+                return {
+                    movePlayer
+                }
+            }
+
+            const game = createGame()
 
             document.addEventListener('keydown', handleKeydown)
 
